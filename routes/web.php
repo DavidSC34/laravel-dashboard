@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TyperTitleController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -44,4 +47,18 @@ require __DIR__.'/auth.php';
 Route::group(['middleware'=>['auth'], 'prefix'=> 'admin', 'as'=>'admin.'],function(){
   Route::resource('hero', HeroController::class);
   Route::resource('typer-title', TyperTitleController::class);
+
+  //   Services Route  
+  Route::resource('service', ServiceController::class);
+  //   About Route 
+  //Crear una nueva ruta al about aun usando resource, se tien que crear antes de
+  Route::get('resume/download',[AboutController::class, 'resumeDownload'])->name('resume.download'); 
+  Route::resource('about', AboutController::class);
+  
+//   Category Route
+  Route::resource('category', CategoryController::class);
+
+  
+
+
 });
