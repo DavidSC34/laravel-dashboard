@@ -120,12 +120,22 @@
                             type:'DELETE',
                             url:deleteUrl,
                             success:function(data){
-                                 Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                                )
-                                window.location.reload();
+
+                                if(data.status == 'error'){
+                                    Swal.fire(
+                                        'You can not delete!',
+                                        'This category contains items and can not be deleted',
+                                        'error'
+                                    )
+                                }else{
+
+                                    Swal.fire(
+                                   'Deleted!',
+                                   'Your file has been deleted.',
+                                   'success'
+                                   )
+                                   window.location.reload();
+                                }
                             },
                             error:function(xhr,status,error){
                                 console.log(error)
