@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\PortfolioItem;
 use App\Models\PortfolioSectionSetting;
+use App\Models\SkillItem;
+use App\Models\SkillSectionSetting;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeController extends Controller
         $portfolioTitle = PortfolioSectionSetting::first();
         $portfolioCategories = Category::all();
         $portfolioItems = PortfolioItem::all();
+        $skillTitle = SkillSectionSetting::first();
+        $skillItems = SkillItem::all();
         return view('frontend.home',
             compact('hero',
                     'typerTitles',
@@ -30,7 +34,9 @@ class HomeController extends Controller
                     'about',
                     'portfolioTitle',
                     'portfolioCategories',
-                    'portfolioItems'
+                    'portfolioItems',
+                    'skillTitle',
+                    'skillItems'
                 ));
     }
 
