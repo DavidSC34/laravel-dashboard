@@ -86,6 +86,8 @@
 
           </ul>
         </li>
+        {{-- Experience Section --}}
+        <li><a class="nav-link" href="{{route('admin.experience.index')}}"><i class="far fa-square"></i> <span>Experience</span></a></li>
 
       </ul>
   </aside>
