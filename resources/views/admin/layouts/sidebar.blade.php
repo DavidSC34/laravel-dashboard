@@ -86,6 +86,7 @@
 
           </ul>
         </li>
+        <li><a class="nav-link" href="{{route('admin.contact.index')}}"><i class="far fa-square"></i> <span>Contactos</span></a></li>
 
       </ul>
   </aside>

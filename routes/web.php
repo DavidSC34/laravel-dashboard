@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioItemController;
@@ -27,6 +28,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[HomeController::class,'index'])->name('home');
+
+
 Route::get('/blog', function () {
     return view('frontend.blog');
 });
@@ -46,6 +49,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
 
 /**Ruta para consultar el detalle del  portfolio item */
 Route::get('portfolio-details/{id}',[HomeController::class, 'showPortfolio'])->name('show.portfolio');
@@ -76,4 +81,8 @@ Route::group(['middleware'=>['auth'], 'prefix'=> 'admin', 'as'=>'admin.'],functi
    Route::resource('skill-section-setting',SkillSectionSettingController::class);
    //**Skill Items Route */
    Route::resource('skill-item',SkillItemController::class);
+
+   /**Contacts */
+   Route::get('contact/province/{country_id}',[ContactController::class, 'getProvincesByCountry'])->name('contact.province');
+   Route::resource('contact',ContactController::class);
 });

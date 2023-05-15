@@ -17,28 +17,33 @@ use App\Models\SkillSectionSetting;
 class HomeController extends Controller
 {
     //
-    public function index(){
-        $hero = Hero::first();
-        $typerTitles = TyperTitle::all();
-        $services = Service::all();
-        $about = About::first();
-        $portfolioTitle = PortfolioSectionSetting::first();
-        $portfolioCategories = Category::all();
-        $portfolioItems = PortfolioItem::all();
-        $skillTitle = SkillSectionSetting::first();
-        $skillItems = SkillItem::all();
-        return view('frontend.home',
-            compact('hero',
-                    'typerTitles',
-                    'services',
-                    'about',
-                    'portfolioTitle',
-                    'portfolioCategories',
-                    'portfolioItems',
-                    'skillTitle',
-                    'skillItems'
-                ));
+
+    public function index()
+    {
+        return redirect()->route('login');
     }
+    // public function index(){
+    //     $hero = Hero::first();
+    //     $typerTitles = TyperTitle::all();
+    //     $services = Service::all();
+    //     $about = About::first();
+    //     $portfolioTitle = PortfolioSectionSetting::first();
+    //     $portfolioCategories = Category::all();
+    //     $portfolioItems = PortfolioItem::all();
+    //     $skillTitle = SkillSectionSetting::first();
+    //     $skillItems = SkillItem::all();
+    //     return view('frontend.home',
+    //         compact('hero',
+    //                 'typerTitles',
+    //                 'services',
+    //                 'about',
+    //                 'portfolioTitle',
+    //                 'portfolioCategories',
+    //                 'portfolioItems',
+    //                 'skillTitle',
+    //                 'skillItems'
+    //             ));
+    // }
 
     public function showPortfolio($id)
     {

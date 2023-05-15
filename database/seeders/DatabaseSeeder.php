@@ -21,6 +21,10 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        User::factory(1)->create();
+        // User::factory(1)->create();
+        $this->call(
+            CategoriasTableSeeder::class,
+            FederacionSeeder::class,
+        );
     }
 }
